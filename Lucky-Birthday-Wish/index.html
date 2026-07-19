@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Lucky! 💜</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Atmospheric Elements Layer -->
+    <div class="aurora-bg"></div>
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="particle-container" id="particleContainer"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ACT 0: Cinematic Loading Screen -->
+    <div class="loader-screen" id="loaderScreen">
+        <div class="loader-content">
+            <div class="loader-text" id="loaderText">Preparing something special...</div>
+            <div class="loader-bar-wrapper">
+                <div class="loader-bar-fill" id="loaderBarFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Experience Orchestrator -->
+    <main class="experience-wrapper dynamic-hide" id="mainExperience">
+        
+        <!-- Audio Controller Toggle -->
+        <button class="audio-toggle-btn" id="audioToggle" aria-label="Toggle Background Music">
+            <span class="audio-icon">🎵</span>
+            <span class="audio-status-text">Play Music</span>
+        </button>
+
+        <!-- ACT 1: Home Hero (The Night Sky Entrance) -->
+        <section class="hero-section" id="home">
+            <div class="celestial-moon"></div>
+            <div class="hero-central-card">
+                <h1 class="hero-title reveal-item">Happy Birthday Lucky 🎂</h1>
+                <div class="typewriter-container">
+                    <p class="typewriter-text" id="heroTypewriter"></p>
+                </div>
+                <button class="premium-glowing-btn reveal-item" id="btnBeginJourney">
+                    <span>Begin Our Journey</span>
+                    <div class="btn-glow-layer"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- ACT 2: The Handwritten Scroll Letter -->
+        <section class="letter-section" id="letterSection">
+            <div class="scroll-anchor-target"></div>
+            <div class="letter-container-glass paper-unfold-target">
+                <div class="letter-inner-content">
+                    <h2 class="letter-salutation">Dear Lucky ❤️,</h2>
+                    <div class="letter-body-stream" id="letterBody">
+                        <p class="letter-p">Happy Birthday!</p>
+                        <p class="letter-p">Today isn't just another day—it's a celebration of someone who has brought so much happiness into my life through friendship.</p>
+                        <p class="letter-p">Sometimes I wonder how life brings certain people into our journey. Among all those people, you became someone truly special—not because of grand moments, but because of the little things that made every conversation, every laugh, and every memory meaningful.</p>
+                        <p class="letter-p">Thank you for being the person who made ordinary days feel extraordinary.</p>
+                        <p class="letter-p">Thank you for every smile we shared.</p>
+                        <p class="letter-p">Thank you for every conversation that made difficult days feel lighter.</p>
+                        <p class="letter-p">Thank you for every memory that I will always carry with me.</p>
+                        <p class="letter-p">Friendship isn't measured by how long we've known each other.</p>
+                        <p class="letter-p">It's measured by how deeply someone touches our life.</p>
+                        <p class="letter-p">You have done that without even realizing it.</p>
+                        <p class="letter-p">I honestly don't know what the future holds.</p>
+                        <p class="letter-p">Life will become busy.</p>
+                        <p class="letter-p">Dreams will take us in different directions.</p>
+                        <p class="letter-p">New people will come into our lives.</p>
+                        <p class="letter-p">But I sincerely hope that no matter how much life changes, our friendship always finds its way back.</p>
+                        <p class="letter-p">I hope every dream you have comes true.</p>
+                        <p class="letter-p">I hope your smile never fades.</p>
+                        <p class="letter-p">I hope happiness follows you wherever you go.</p>
+                        <p class="letter-p">And whenever life feels difficult, remember that you'll always have one friend who believes in you, supports you, and wishes the very best for you.</p>
+                        <p class="letter-p">Thank you for simply being you.</p>
+                        <p class="letter-p">Happy Birthday once again, Lucky.</p>
+                        <p class="letter-p">May this year become the most beautiful chapter of your life.</p>
+                        <p class="letter-p-footer">With lots of gratitude, respect, and endless friendship,</p>
+                        <p class="letter-signature">❤️ Your Best Friend</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 3: Unified Memory Space (Gallery & Theater) -->
+        <section class="gallery-theater-section" id="gallerySection">
+            <h2 class="section-title-aesthetic">Moments Frozen in Time</h2>
+            
+            <!-- Pinterest Styled Masonry Grid -->
+            <div class="pinterest-masonry-container">
+                <!-- Image Card 1 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img3.jpeg" alt="Friendship Memory 1" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">💜</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image Card 2 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img2.jpeg" alt="Friendship Memory 2" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">✨</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img1.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🌸</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img5.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">😊</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img6.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🤍</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img7.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🌸</span>
+                        </div>
+                    </div>
+                </div>
+               
+
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img8.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">😊</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img9.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🤍</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img10.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🌸</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img11.jpeg" alt="Friendship Memory 3" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">✨</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Image Card 4 -->
+                <div class="masonry-brick scroll-trigger-fade">
+                    <div class="brick-glass-wrapper">
+                        <img src="/assets/img4.jpeg" alt="Friendship Memory 4" class="brick-img">
+                        <div class="brick-hover-overlay">
+                            <span class="heart-icon-pop">🤍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fullscreen Lightbox Context -->
+            <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+                <button class="lightbox-close" id="lightboxClose">&times;</button>
+                <img src="" alt="Fullscreen Display View" class="lightbox-main-img" id="lightboxMainImg">
+            </div>
+
+            <!-- Cinema Theater Video Showcase -->
+            <div class="cinema-theater-wrapper scroll-trigger-fade">
+                <h3 class="cinema-heading">Your Beautiful Captures</h3>
+                <div class="theater-screen-frame">
+                    <div class="screen-ambient-glow"></div>
+                    <!-- Replace the data-src below with your real hosted video link (mp4/youtube/vimeo) -->
+                    <video class="theater-video-element" id="theaterVideo" controls preload="metadata" poster="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=1200">
+                        <source src="luckyvideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="cinema-post-msg" id="cinemaPostMessage">Some memories never fade.</div>
+            </div>
+        </section>
+
+        <!-- ACT 4: Dynamic Carousel of Thoughts -->
+        <section class="quotes-carousel-section">
+            <div class="quotes-glass-container">
+                <div class="quotes-icon-decor">“</div>
+                <div class="quote-text-viewport" id="quoteViewport">
+                    <!-- Inside content handled gracefully by JS Engine -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 5: Timeline Stream & Memory Wall -->
+        <section class="timeline-wall-section" id="timelineSection">
+            <h2 class="section-title-aesthetic">Our Story & Fragments</h2>
+            
+            <div class="dual-grid-layout">
+                <!-- Chronological Timeline Stack -->
+                <div class="chronology-wrapper">
+                    <div class="timeline-line-axis"></div>
+                    
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>The Meeting</h4>
+                            <p>Where the story unexpectedly started.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>First Conversation</h4>
+                            <p>Breaking the ice and finding immediate connections.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>First Selfie</h4>
+                            <p>A goofy frame capturing real smiles.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>Late Night Chats</h4>
+                            <p>Solving the world's problems at 2:00 AM.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>Crazy Moments</h4>
+                            <p>Uncontrollable inside jokes and laughter fits.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>Trips</h4>
+                            <p>Chasing views and building endless map anchors.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker"></div>
+                        <div class="node-card-glass">
+                            <h4>Birthday Celebration</h4>
+                            <p>August 1st—Celebrating the gift of you.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node scroll-trigger-fade">
+                        <div class="node-marker highlight-marker"></div>
+                        <div class="node-card-glass highlight-card">
+                            <h4>More Adventures Ahead...</h4>
+                            <p>The pages ahead are blank, waiting for us.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Wall Board Workspace -->
+                <div class="memory-wall-board">
+                    <!-- Sticky Note 1 -->
+                    <div class="sticky-note-item pad-rotate-left scroll-trigger-fade">
+                        <div class="polaroid-frame">
+                            <img src="/assets/img1.jpeg" alt="Wall piece 1">
+                            <p class="polaroid-handwriting">Always smiling! 😊</p>
+                        </div>
+                    </div>
+                    <!-- Sticky Note 2 -->
+                    <div class="sticky-note-item pad-rotate-right scroll-trigger-fade">
+                        <div class="cork-note-card">
+                            <p class="note-handwriting">Remember that hilarious coffee spill? I still laugh thinking about it! ☕💥</p>
+                        </div>
+                    </div>
+                    <!-- Sticky Note 3 -->
+                    <div class="sticky-note-item pad-rotate-skew scroll-trigger-fade">
+                        <div class="polaroid-frame">
+                            <img src="/assets/img3.jpeg" alt="Wall piece 2">
+                            <p class="polaroid-handwriting">Quiet sunsets. 🌸</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 6: Character Virtues Metrics -->
+        <section class="virtues-section">
+            <h2 class="section-title-aesthetic">Why You Are Beyond Amazing</h2>
+            <div class="virtues-flex-grid">
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">😊</div>
+                    <h3>Your Smile</h3>
+                    <p>Instantly lights up any room and shifts the energy of everyone around you.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">❤️</div>
+                    <h3>Your Kindness</h3>
+                    <p>A rare, genuine empathy that quietly supports without expecting anything back.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">🌸</div>
+                    <h3>Your Caring Nature</h3>
+                    <p>You remember the smallest details and protect the people you value deeply.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">🤍</div>
+                    <h3>Your Support</h3>
+                    <p>A reliable anchor through every chaotic phase, always standing ground.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">✨</div>
+                    <h3>Your Positivity</h3>
+                    <p>A bright perspective that tracks silver linings when things seem difficult.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">😂</div>
+                    <h3>Your Funny Personality</h3>
+                    <p>Brilliant humor that makes ordinary moments historic memories.</p>
+                </div>
+                <div class="virtue-card-glass scroll-trigger-fade">
+                    <div class="virtue-icon-bubble">💜</div>
+                    <h3>Your Beautiful Heart</h3>
+                    <p>Pure, authentic, and truly irreplaceable. The greatest anchor of all.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 7: Live Chronometer Ticker Container -->
+        <section class="countdown-section-wrapper scroll-trigger-fade">
+            <div class="countdown-glass-module">
+                <h3 class="countdown-header-label" id="countdownLabel">Counting down to your special day...</h3>
+                <div class="countdown-digits-row" id="countdownDigits">
+                    <div class="digit-box"><span id="days">00</span><label>Days</label></div>
+                    <div class="digit-box"><span id="hours">00</span><label>Hours</label></div>
+                    <div class="digit-box"><span id="minutes">00</span><label>Mins</label></div>
+                    <div class="digit-box"><span id="seconds">00</span><label>Secs</label></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 8: The Secret Surprise Final Threshold Layer -->
+        <section class="secret-surprise-section">
+            <div class="surprise-trigger-zone" id="surpriseTriggerZone">
+                <button class="premium-glowing-btn large-scale-btn" id="btnSecretSurprise">
+                    <span>One Last Surprise</span>
+                    <div class="btn-glow-layer"></div>
+                </button>
+            </div>
+            
+            <!-- Cinematic Dark Reveal Canvas Container Overlay -->
+            <div class="cinematic-overlay-canvas-wrapper" id="cinematicOverlay">
+                <canvas class="fireworks-canvas-element" id="fireworksCanvas"></canvas>
+                <div class="cinematic-scrolling-container-viewport" id="cinematicTextViewport">
+                    <div class="cinematic-text-transform-block" id="cinematicTextBlock">
+                        <!-- Dynamic text inserts here programmatically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT 9: The Epilogue Frame -->
+        <section class="epilogue-footer-section">
+            <div class="celestial-moon secondary-moon"></div>
+            <div class="epilogue-glass-card scroll-trigger-fade">
+                <p class="epilogue-quote">"Some friendships are written by destiny."</p>
+                <p class="epilogue-subquote">"Our friendship is one of my life's greatest blessings."</p>
+                <div class="epilogue-heart-burst">❤️</div>
+                <h4 class="epilogue-signature-title">Forever Best Friends</h4>
+                <div class="epilogue-names-line">Lucky & Raji</div>
+                <div class="epilogue-date-stamp">August 1, 2026</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Native JavaScript Controller Init -->
+    <script src="script.js"></script>
+</body>
+</html>

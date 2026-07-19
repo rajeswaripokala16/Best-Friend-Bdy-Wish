@@ -1,0 +1,1155 @@
+/* ==========================================================================
+   CSS VARIABLE ARCHITECTURE & CONFIGURATION
+   ========================================================================== */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+
+    /* Color Palette Ecosystem */
+    --color-lavender: #E6E6FA;
+    --color-soft-pink: #FFC0CB;
+    --color-pure-white: #FFFFFF;
+    --color-deep-purple: #4B0082;
+    --color-royal-purple: #6A0DAD;
+    --color-electric-purple: #8A2BE2;
+    --color-sky-blue: #87CEEB;
+    --color-golden-glow: #FFD700;
+    --color-light-peach: #FFDAB9;
+    
+    /* Utility Tokens */
+    --glass-background: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: rgba(31, 38, 135, 0.25);
+    --transition-premium: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   RESET & SYSTEM BASE RULES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0b071e;
+    font-family: var(--font-primary);
+    color: var(--color-pure-white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Dynamic Hidden Element Safety classes */
+.dynamic-hide {
+    display: none !important;
+}
+.opacity-zero {
+    opacity: 0;
+}
+
+/* ==========================================================================
+   ATMOSPHERIC ENGINE STYLING (AURORAS, CANVAS & PARTICLES)
+   ========================================================================== */
+.aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;
+    background: radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 192, 203, 0.15), transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.2), transparent 50%);
+    filter: blur(60px);
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.star-element {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: pulseStar linear infinite;
+}
+
+@keyframes pulseStar {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Interactive Cursor Ambient Tracking Item */
+.cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(230, 230, 250, 0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    mix-blend-mode: screen;
+    transition: width 0.3s, height 0.3s;
+}
+
+/* ==========================================================================
+   ACT 0: ACTIVATE CINEMATIC LOADER SCREEN
+   ========================================================================== */
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #05030f;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.loader-content {
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.loader-text {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+.loader-bar-wrapper {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-sky-blue), var(--color-royal-purple), var(--color-soft-pink));
+    box-shadow: 0 0 8px #8A2BE2;
+    transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   GLOBAL ORCHESTRATOR & MUSIC CONTROLLER
+   ========================================================================== */
+.experience-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.audio-toggle-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 999;
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    color: var(--color-pure-white);
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-premium);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.audio-toggle-btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(138,43,226,0.4);
+}
+
+/* ==========================================================================
+   ACT 1: HERO DISPLAY INTERNALS
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.celestial-moon {
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fff5d7 40%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(255, 245, 215, 0.4);
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+.secondary-moon {
+    top: 10%;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    opacity: 0.4;
+}
+
+.hero-central-card {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    transform: translateZ(0);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--color-pure-white) 30%, var(--color-lavender) 70%, var(--color-soft-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.typewriter-container {
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.typewriter-text {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-lavender);
+    max-width: 500px;
+    border-right: 2px solid rgba(255,255,255,0.75);
+    white-space: normal;
+    animation: blinkCursor 0.8s step-end infinite alternate;
+}
+
+@keyframes blinkCursor {
+    from { border-color: transparent }
+    to { border-color: rgba(255,255,255,0.75); }
+}
+
+/* Premium Core Glass Action Buttons Layout */
+.premium-glowing-btn {
+    position: relative;
+    background: linear-gradient(135deg, rgba(106, 13, 173, 0.4), rgba(138, 43, 226, 0.4));
+    border: 1px solid var(--glass-border);
+    padding: 1rem 2.5rem;
+    border-radius: 40px;
+    color: var(--color-pure-white);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-premium);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.premium-glowing-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glow-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-royal-purple), var(--color-soft-pink));
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+}
+
+.premium-glowing-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+}
+
+.premium-glowing-btn:hover .btn-glow-layer {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   ACT 2: HANDWRITTEN ANATOMY OF SCROLL LETTER
+   ========================================================================== */
+.letter-section {
+    padding: 8rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.letter-container-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 800px;
+    padding: 4.5rem 4rem;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: opacity 1.5rem cubic-bezier(0.25, 1, 0.5, 1), transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Structural Target Dynamic Triggers for unfold animation */
+.letter-container-glass.unfolded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.letter-salutation {
+    font-family: var(--font-script);
+    font-size: 2.8rem;
+    color: var(--color-soft-pink);
+    margin-bottom: 2rem;
+}
+
+.letter-body-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.letter-p {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-p-footer {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-signature {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-golden-glow);
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Visibility injected via dynamic script tracking execution context */
+.letter-p.revealed, .letter-p-footer.revealed, .letter-signature.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   ACT 3: THE HIGH GALLERY & THEATER SPACE
+   ========================================================================== */
+.gallery-theater-section {
+    padding: 6rem 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title-aesthetic {
+    text-align: center;
+    font-size: 2.25rem;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--color-lavender), var(--color-soft-pink), var(--color-sky-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pinterest-masonry-container {
+    columns: 4 250px;
+    column-gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 8rem;
+}
+
+.masonry-brick {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.brick-glass-wrapper {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-premium);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.brick-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brick-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(106, 13, 173, 0.3) 0%, rgba(0,0,0,0.4) 100%);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.heart-icon-pop {
+    font-size: 2.5rem;
+    transform: scale(0.6);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brick-glass-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(138,43,226,0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.brick-glass-wrapper:hover .brick-img {
+    transform: scale(1.06);
+}
+
+.brick-glass-wrapper:hover .brick-hover-overlay {
+    opacity: 1;
+}
+
+.brick-glass-wrapper:hover .heart-icon-pop {
+    transform: scale(1);
+}
+
+/* Lightbox Module Viewport Layout */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 3, 15, 0.95);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-main-img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/* Cinema Frame Space Container Definitions */
+.cinema-theater-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cinema-heading {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+}
+
+.theater-screen-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.theater-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.screen-ambient-glow {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+    animation: lightBreath 8s infinite alternate;
+}
+
+@keyframes lightBreath {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.cinema-post-msg {
+    margin-top: 2rem;
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--color-lavender);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition-premium);
+}
+
+.cinema-post-msg.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   ACT 4: TRANSITIONAL QUOTES SYSTEM
+   ========================================================================== */
+.quotes-carousel-section {
+    padding: 6rem 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quotes-glass-container {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 3.5rem;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.quotes-icon-decor {
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    color: rgba(255, 192, 203, 0.15);
+    line-height: 1;
+}
+
+.quote-text-viewport {
+    font-family: var(--font-secondary);
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-lavender);
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ==========================================================================
+   ACT 5: CHRONOLOGY STACK & BOARD MEMORY FRAGMENTS
+   ========================================================================== */
+.timeline-wall-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.dual-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .dual-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 6rem;
+    }
+}
+
+.chronology-wrapper {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-line-axis {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.05), var(--color-royal-purple), var(--color-soft-pink), rgba(255,255,255,0.05));
+}
+
+.timeline-node {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.node-marker {
+    position: absolute;
+    left: calc(-2rem - 1px);
+    top: 1.25rem;
+    width: 14px;
+    height: 14px;
+    background-color: #0b071e;
+    border: 2px solid var(--color-sky-blue);
+    border-radius: 50%;
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+
+.node-card-glass {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: var(--transition-premium);
+}
+
+.node-card-glass h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-lavender);
+}
+
+.node-card-glass p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+}
+
+.timeline-node:hover .node-card-glass {
+    transform: translateX(8px);
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.09);
+}
+
+.timeline-node:hover .node-marker {
+    transform: scale(1.3);
+    background-color: var(--color-sky-blue);
+}
+
+/* Special Highlighting Classes for Node Ends */
+.highlight-card {
+    border-color: rgba(255, 215, 0, 0.3) !important;
+    background: rgba(255, 215, 0, 0.04) !important;
+}
+.highlight-marker {
+    border-color: var(--color-golden-glow) !important;
+}
+
+/* Memory Board Layout Items */
+.memory-wall-board {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.sticky-note-item {
+    transition: transform 0.5s ease;
+}
+
+.sticky-note-item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+}
+
+.pad-rotate-left { transform: rotate(-4deg); }
+.pad-rotate-right { transform: rotate(5deg); }
+.pad-rotate-skew { transform: rotate(-2deg) translateY(10px); }
+
+.polaroid-frame {
+    background-color: #fcfbf7;
+    padding: 1rem 1rem 2.5rem 1rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-radius: 2px;
+    max-width: 280px;
+}
+
+.polaroid-frame img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.15) contrast(0.95);
+}
+
+.polaroid-handwriting {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: #2b2b2b;
+    text-align: center;
+    margin-top: 1.25rem;
+}
+
+.cork-note-card {
+    background: linear-gradient(135deg, #fff3cd, #ffeeba);
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    max-width: 300px;
+    position: relative;
+}
+
+.cork-note-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #ff5252;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.note-handwriting {
+    font-family: var(--font-script);
+    font-size: 1.7rem;
+    color: #383d41;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* ==========================================================================
+   ACT 6: CHARACTER VIRTUES MATRIX
+   ========================================================================== */
+.virtues-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.virtues-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.virtue-card-glass {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    width: calc(33.333% - 1.5rem);
+    min-width: 280px;
+    text-align: center;
+    transition: var(--transition-premium);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.virtue-icon-bubble {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.virtue-card-glass h3 {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-light-peach);
+}
+
+.virtue-card-glass p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+}
+
+.virtue-card-glass:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 192, 203, 0.3);
+    box-shadow: 0 15px 35px rgba(106, 13, 173, 0.25);
+    background: rgba(255,255,255,0.08);
+}
+
+/* ==========================================================================
+   ACT 7: LIVE CHRONOMETER COUNTDOWN TICKER
+   ========================================================================== */
+.countdown-section-wrapper {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.countdown-glass-module {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 4rem 3rem;
+    max-width: 750px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.countdown-header-label {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    color: var(--color-lavender);
+}
+
+.countdown-digits-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.digit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.digit-box span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    background: linear-gradient(180deg, #fff 40%, var(--color-sky-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.digit-box label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 500px) {
+    .digit-box span { font-size: 2.25rem; }
+    .countdown-glass-module { padding: 2.5rem 1.5rem; }
+}
+
+/* ==========================================================================
+   ACT 8: CINEMATIC OVERLAY & FINAL OVERRIDE ENGINE
+   ========================================================================== */
+.secret-surprise-section {
+    padding: 8rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.large-scale-btn {
+    padding: 1.25rem 4rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(138,43,226,0.3);
+}
+
+.cinematic-overlay-canvas-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 99999;
+    display: none; /* Injected dynamically by logic trigger */
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.cinematic-overlay-canvas-wrapper.activated {
+    display: block;
+    opacity: 1;
+}
+
+.fireworks-canvas-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cinematic-scrolling-container-viewport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cinematic-text-transform-block {
+    text-align: center;
+    max-width: 850px;
+    width: 85%;
+    padding: 2rem;
+}
+
+.cinema-node-para {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.45rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+    transition: color 1.5s ease, text-shadow 1.5s ease;
+}
+
+.cinema-node-para.bright {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+.cinema-node-para.script-accent {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: rgba(255, 192, 203, 0);
+}
+
+.cinema-node-para.script-accent.bright {
+    color: var(--color-soft-pink);
+}
+
+/* ==========================================================================
+   ACT 9: EPILOGUE FRAME CLOSURE
+   ========================================================================== */
+.epilogue-footer-section {
+    position: relative;
+    padding: 10rem 2rem 8rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.epilogue-glass-card {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 5rem 4rem;
+    max-width: 650px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.epilogue-quote {
+    font-size: 1.35rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-lavender);
+    font-style: italic;
+}
+
+.epilogue-subquote {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.epilogue-heart-burst {
+    font-size: 3rem;
+    color: #ff4757;
+    animation: heartBeat 1.4s infinite ease-in-out;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    40% { transform: scale(1.05); }
+    60% { transform: scale(1.2); }
+}
+
+.epilogue-signature-title {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-soft-pink);
+    margin-bottom: 0.5rem;
+}
+
+.epilogue-names-line {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: var(--color-pure-white);
+}
+
+.epilogue-date-stamp {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SCROLL INTERSECTION ENGINE DRIVER BASE STYLES
+   ========================================================================== */
+.scroll-trigger-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-trigger-fade.intersected {
+    opacity: 1;
+    transform: translateY(0);
+}
